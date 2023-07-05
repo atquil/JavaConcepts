@@ -1,12 +1,12 @@
 # Multi-threading-interview-question
- 
-## Q) What is MultiTasking And Its types? 
+
+### Q) What is MultiTasking And Its types? 
 
  Performing  multiple tasks at one time . There are 2 types of multitasking :
 1. Process based multitasking 
 2. Thread based multitasking
 
-## Q) What is Multi-threading & how is it diff from multitasking? [Multi-tasking,ProcessBaed] [Multi-threading,ThreadBased]
+### Q) What is Multi-threading & how is it diff from multitasking? [Multi-tasking,ProcessBaed] [Multi-threading,ThreadBased]
 
 **Multithreading is a specialized form of multitasking.**
 
