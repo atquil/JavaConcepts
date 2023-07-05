@@ -114,6 +114,23 @@ submit(Runnable) will return null, as Runnable return type for run() is void.
 
 submit(Callable) will return the value similar to supplyAsync. 
 
+### Q) What is the difference between executerService.execute() and executerService.submit();
+
+`execute()` is only applicable for Runnable. 
+`submit()` can be used on both Runnable and Callable. 
+
+### Q) What is difference between Future and FutureTask?
+
+- Future implements Callable interface
+- **FutureTask** implements RunnableFuture --> Which extends Runnable and Future. 
+
+### Q) What is the role of **shutdown()**  on ExecutorService?
+
+The shutdown() method on an ExecutorService does not wait for previously submitted tasks to complete. 
+Instead, it prevents new tasks from being submitted and allows previously submitted tasks to complete.
+Once all tasks have completed, the threads in the executor service are terminated.
+
+
 ### Q) What are the exception thrown by thread?
 
 ExecutionException, InterruptedException
@@ -143,3 +160,56 @@ by using **latch.await()** it will wait till countdown reaches to 0 then only it
 ### Q) What is ThreadLocal, and when it is used?
 
 It enables you to create variables that can only be read and write by the same thread. If two threads are executing the same code and that code has a reference to a ThreadLocal variable then the two threads can’t see the local variable of each other
+
+
+### Q) What is wait() and notify() method in thread? When to use it
+
+The wait() and notify() methods are used for inter-thread communication in Java. 
+- The **`wait()`** method is called on an object when a thread wants to wait for another thread to complete its task.  
+- The **`notify()`** method is called on the same object when the task is completed by the thread.
+
+### Q) What is BlockingQueue?
+
+A BlockingQueue is a queue that blocks when you try to dequeue from it and the queue is empty, or when you try to enqueue items to it and the queue is full.
+
+A thread trying to dequeue from an empty queue is blocked until some other thread inserts an item into the queue. **`queue.take()`**
+
+A thread trying to enqueue an item in a full queue is blocked until some other thread makes space in the queue by dequeuing one or more items.**`queue.put("Data")`**
+
+### Q) Compare wait() and notify() with BlockingQueue.
+
+**Both** wait() and notify() and BlockingQueue are used for **`inter-thread communication`** in Java
+
+- **wait() and notify()** are used to signal between threads that a certain condition has been met. For example, if one thread is waiting for another thread to finish processing some data, it can call wait() to wait for the other thread to finish. When the other thread finishes processing the data, it can call notify() to signal the waiting thread that it can continue.
+- **BlockingQueue,** on the other hand, is a data structure that is designed specifically for inter-thread communication. It provides a way for one thread to add an item to the queue and another thread to remove an item from the queue. If the queue is empty when a thread tries to remove an item from it, the thread will block until an item becomes available. Similarly, if the queue is full when a thread tries to add an item to it, the thread will block until there is space available in the queue.
+
+Comparison: 
+- In general, BlockingQueue is easier to use than wait() and notify(), because it provides a` **higher-level abstraction`** that takes care of many of the details of inter-thread communication. 
+- However, there are some situations where wait() and notify() may be more appropriate. For example, if you need to signal between more than two threads or if you need more fine-grained control over when threads are notified.
+
+### Q) What is ReentrantLock? Is it better than synchronized ?
+
+ReentrantLock is a class in Java that provides a more flexible way of locking than the synchronized
+- Granularity: Unlike the synchronized keyword, which locks an entire method or block of code, ReentrantLock allows you to lock specific sections of code. This can help improve performance by reducing contention for shared resources.
+- Fairness: ReentrantLock provides a way to ensure fairness in thread scheduling. When fairness is enabled, the lock favors the longest-waiting thread when granting access to the locked resource
+- Interruptibility: ReentrantLock provides a way to interrupt threads that are waiting for the lock. This can be useful in situations where you need to cancel a long-running operation.
+
+### Q) What do you mean by CyclicBarrier?
+
+CyclicBarrier is a **synchronization aid** that allows a set of threads to wait for each other to reach a common barrier point.
+The benefits of using CyclicBarrier include:
+
+- Synchronization: CyclicBarrier provides a way to synchronize multiple threads at a common point.
+- Flexibility: The number of threads that need to reach the barrier can be specified when creating the CyclicBarrier object.
+- Customizability: A Runnable object can be specified to run when all threads have reached the barrier.
+
+
+### Q) What is ForkJoinPool ? What is the benefit of it, then Executor
+
+ForkJoinPool is an executor service to run ForkJoinTask which uses **`work-stealing-algorithm`** i.e. all threads in the pool attempt to find and execute task submitted to pool. 
+
+- **PARALLEL STREAM** uses a static commonPool which is available to entire applicaiton.
+- We can create a customPool but should be very careful --> As if you are using parallel stream, then there can be a situation, where you can never get the thread. 
+- Uses **divide and conquor approach**
+
+Generall, if you have n number of core (Runtime.getRuntime().availableProcessors()) then you will have n-1 threads in ForkJoinPool

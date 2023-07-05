@@ -1,4 +1,4 @@
-package multithreading.advance;
+package multithreading.advance.future;
 
 
 import java.util.concurrent.CompletableFuture;
