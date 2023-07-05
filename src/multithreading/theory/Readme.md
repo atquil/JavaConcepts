@@ -213,3 +213,26 @@ ForkJoinPool is an executor service to run ForkJoinTask which uses **`work-steal
 - Uses **divide and conquor approach**
 
 Generall, if you have n number of core (Runtime.getRuntime().availableProcessors()) then you will have n-1 threads in ForkJoinPool
+
+### Q) What are volatile field ?
+n Java, volatile fields are declared using the `volatile` keyword.
+When developers are writing to a volatile field, all `writes` are `instantly visible` to the other threads. As a result, other threads will always see the latest value.
+Similarly, when `reading` from a volatile field, all reads are guaranteed to return the most recent write by any thread.
+
+Because of this guarantee, volatile fields are often used as a simple form of synchronization between threads. For example, a thread might use a volatile field as a flag to indicate that some operation has been completed.
+
+Another thread can check this flag to know when it is safe to proceed. 
+Volatile fields do not guarantee proper ordering, though. In other words, if one thread writes to a volatile field and another reads from it, the order in which the reads and writes take place is not guaranteed. 
+There is only one guarantee: it will return the most recent write.
+
+### Q) What are the LockFree Data structure?
+
+A **lock-free data structure** is a data structure that can be accessed by multiple threads without the use of locks. Lock-free data structures are designed to be thread-safe and avoid the overhead of locking.
+
+Some examples of lock-free data structures include:
+
+1. **ConcurrentHashMap**: A hash table that allows multiple threads to read and write concurrently without blocking each other.
+2. **ConcurrentLinkedQueue**: A queue that allows multiple threads to add and remove elements concurrently without blocking each other.
+3. **AtomicReference**: A reference to an object that can be updated atomically without the use of locks.
+
+Lock-free data structures are often used in high-performance applications where locking can cause performance issues.
