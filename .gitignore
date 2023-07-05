@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### How to use it after project is setup###
+## git rm -rf --cached .
+## git add .
