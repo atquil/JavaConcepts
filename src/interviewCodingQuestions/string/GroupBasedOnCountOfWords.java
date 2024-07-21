@@ -9,6 +9,10 @@ public class GroupBasedOnCountOfWords {
     public static void main(String[] args) {
         List<String> inputWordList = List.of("hi", "i", "am","atul");
 
+        System.out.println(inputWordList.stream()
+                .collect(Collectors.groupingBy(String::length)));
+        System.out.println(inputWordList.stream().collect(Collectors.groupingBy(String::length)));
+
         Map<Integer,List<String>> mapWithCountAndWords = inputWordList.stream()
                 .collect(Collectors.groupingBy(word->word.length(), Collectors.toList()));
         mapWithCountAndWords.forEach((key,value)->System.out.println(key+":"+value));

@@ -8,6 +8,7 @@ class MyCustomException extends RuntimeException{
         System.out.println("Exception from :"+message);
     }
 }
+
 public class CustomException {
     public static void main(String[] args) {
         if(2<3){
