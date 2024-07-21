@@ -1,2 +1,4 @@
-package multithreading.basic.schedular;public class ThreadSchedular {
+package multithreading.basic.schedular;
+
+public class ThreadSchedular {
 }

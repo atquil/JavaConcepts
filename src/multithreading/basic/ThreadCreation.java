@@ -43,7 +43,7 @@ public class ThreadCreation {
 
         ThreadClassUsingExtension threadClassUsingExtension = new ThreadClassUsingExtension();
         threadClassUsingExtension.setName("Thread using Extension"); //Optional step
-        threadClassUsingExtension.setPriority(6); // By default the main thread has priority 5, and it ranges from 0-10, the higher the priority the eariler it get's executed.
+        threadClassUsingExtension.setPriority(6); // By default, the main thread has priority 5, and it ranges from 0-10, the higher the priority the eariler it get's executed.
 
         threadClassUsingExtension.start(); //The start will set the thread, and will call the run method
 

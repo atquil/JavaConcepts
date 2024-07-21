@@ -7,13 +7,13 @@ public class RecursiveFactorial {
         System.out.println("Factorial of "+number+" : "+getRecursiveFactorial(number));
     }
 
-    private static Integer getRecursiveFactorial(int number) {
-
-        if(number>=1){
+  private static Integer getRecursiveFactorial(int number){
+        if(number >= 1){
             return number + getRecursiveFactorial(number -1);
         }
-        return 1;
-    }
+
+        return number;
+  }
 
 
 }

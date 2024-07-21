@@ -10,6 +10,7 @@ public class GroupBasedWords {
 
         List<String> stringList = Arrays.asList("here","something","here","check");
 
+
         //Using CollectionFramework:
         System.out.println(stringList.stream().collect(Collectors.groupingBy(word->word,Collectors.counting())));
 

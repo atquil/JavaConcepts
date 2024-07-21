@@ -7,12 +7,13 @@ import java.util.stream.Collectors;
 public class CombineListOfStringIntoSingleString {
     public static void main(String[] args) {
         List<String> givenStringList = Arrays.asList("I", " am", " atul");
-
+        String someString = String.join("", givenStringList);
         getJoinUsingStringBuilder(givenStringList);
 
         System.out.println("============================================");
 
         getJoinUsingStream(givenStringList);
+
 
     }
 

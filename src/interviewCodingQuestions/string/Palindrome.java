@@ -1,8 +1,17 @@
 package interviewCodingQuestions.string;
 
+import java.util.Arrays;
+
 public class Palindrome {
     public static void main(String[] args) {
-        String checkPalindrome ="MadM";
+        String checkPalindrome ="MDadM";
+        StringBuilder stringBuilder = new StringBuilder(checkPalindrome.toLowerCase());
+        stringBuilder.reverse();
+        if(stringBuilder.toString().equalsIgnoreCase(checkPalindrome)){
+            System.out.println("Palindrome");
+        }
+
+
 
         //Using StringBuilder
         System.out.println(isPalindrome(checkPalindrome));
